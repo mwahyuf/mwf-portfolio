@@ -338,5 +338,15 @@ Site.dictionary = {
  "(opens in a new tab)": "(dibuka di tab baru)",
  "Email Me": "Kirim Email",
  "Project / 006": "Proyek / 006",
- "Project / 007": "Proyek / 007"
+ "Project / 007": "Proyek / 007",
+ "Other / Not sure yet": "Lainnya / Belum yakin",
+ "Please select a service or project type.": "Silakan pilih layanan atau jenis proyek.",
+ "Please tell me a little about your project.": "Silakan ceritakan sedikit tentang proyek Anda.",
+ "Sending...": "Mengirim...",
+ "Your inquiry has been sent successfully.": "Permintaan Anda berhasil dikirim.",
+ "Thank you for reaching out. I'll review your project details and get back to you as soon as possible.": "Terima kasih telah menghubungi saya. Saya akan meninjau detail proyek Anda dan segera membalas.",
+ "Something went wrong.": "Terjadi kesalahan.",
+ "Your inquiry could not be submitted. Please try again or contact me directly by email at": "Permintaan Anda tidak dapat dikirim. Silakan coba lagi atau hubungi saya langsung melalui email di",
+ "Your inquiry is sent through a third-party form service and used only to respond to you.": "Permintaan Anda dikirim melalui layanan formulir pihak ketiga dan hanya digunakan untuk menanggapi Anda.",
+ "Prefer the form for project inquiries, or contact me directly:": "Untuk permintaan proyek, silakan gunakan formulir ini, atau hubungi saya langsung:"
 };

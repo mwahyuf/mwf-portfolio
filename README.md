@@ -30,9 +30,26 @@ No frameworks, no build step, no dependencies. You can open `index.html` directl
 
 ## Notes
 - Strict CSP: scripts and styles come only from this site (plus Google Fonts). Do not add inline `<script>`, `style=""` attributes or inline event handlers; use the files and utility classes instead.
-- The contact form opens the visitor's email app (no server, nothing stored). For direct delivery you need a backend; see the security checklist.
+- The contact form posts JSON to a form service (see below). The direct email links are only an optional fallback.
 - Language and theme are saved in `localStorage`. Both languages share the same URL, so search engines index the English version.
 - Google Fonts is the only third-party request; self-host Inter if you want to remove it.
 
 ## Adding a project
 Copy any `project-*.html`, edit its sections (Overview, Challenge, Role, Approach, Implementation, Tools, Result, Notes), add a card to `work.html` (and optionally `index.html`), add the URL to `sitemap.xml`, and add Indonesian text to `i18n/id.js`.
+
+## Contact form setup (required before launch)
+The form submits to a third-party form endpoint, so it works on GitHub Pages without a backend. No endpoint is configured yet: until you set one, "Send Inquiry" shows the friendly error message and never claims success.
+
+Recommended provider: **Formspree** (static-site friendly, JSON endpoint, provider-side spam filtering, honeypot support). Alternatives such as Web3Forms or Getform also work, but may need extra payload fields; check their docs.
+
+1. Create a form at the provider and copy its endpoint URL (for Formspree: `https://formspree.io/f/xxxxxxxx`).
+2. Paste it into `formEndpoint` in `js/config.js`.
+3. If the provider is not `formspree.io`, change `connect-src` in the CSP meta tag of every HTML page and in `_headers`.
+4. In the provider dashboard, set the notification email, and restrict allowed domains if the provider offers it.
+5. Test: success message, error message (e.g. offline), validation, English and Indonesian.
+
+Notes:
+- The endpoint URL is public by design (it is visible in the page). Never put a secret API key in the JavaScript.
+- Spam: the hidden honeypot field (`_gotcha`) plus the provider's filtering. If spam becomes a problem, add the provider's CAPTCHA or Cloudflare Turnstile; this needs the script host added to the CSP.
+- Privacy: the provider stores submissions according to its own policy. The note under the form says the inquiry goes through a third-party service. Add a link to the provider's privacy policy if you want to be more explicit.
+- Submitted values are only ever shown with `textContent`, never `innerHTML`.
