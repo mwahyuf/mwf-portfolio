@@ -1,4 +1,4 @@
-# Portfolio website (static, vanilla HTML/CSS/JS)
+# Portfolio website (static, HTML/CSS/JS)
 
 No frameworks, no build step, no dependencies. You can open `index.html` directly from the folder, or serve it with any static server.
 
